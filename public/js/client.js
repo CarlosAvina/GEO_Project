@@ -1,6 +1,6 @@
 var socket = io('http://localhost:3000');
 
-var sliderElement = document.getElementById('sliderElement');
+var sliderElement;
 var canvas;
 var canvasContext;
 var listaOpciones;
@@ -18,9 +18,15 @@ var yf = 0;
 var figuras = [];
 var figurasCargadas = [];
 
+var figurasActuales = [];
+
 window.onload = function () {
     canvas = document.getElementById('canvasId');
     canvasContext = canvas.getContext('2d');
+    sliderElement = document.getElementById('sliderElement');
+
+    var perimetro = ['perimetroDefinitivo.dat'];
+    enviarDatos(perimetro);
    
     canvas.style.border = '10px solid';
     canvas.style.borderColor = '#FFFFFF';
@@ -54,17 +60,6 @@ window.onload = function () {
         });
       
     }());
-
-   /*  function drawImageScaled(background, canvasContext) {
-        var canvas = canvasContext.canvas ;
-        var hRatio = canvas.width  / background.width;
-        var vRatio =  canvas.height / background.height;
-        var ratio  = Math.min ( hRatio, vRatio );
-        var centerShift_x = ( canvas.width - background.width*ratio ) / 2;
-        var centerShift_y = ( canvas.height - background.height*ratio ) / 2;  
-        canvasContext.clearRect(0,0,canvas.width, canvas.height);
-        canvasContext.drawImage(background, 0,0, background.width, background.height,centerShift_x,centerShift_y,background.width*ratio, background.height*ratio);  
-    } */
     
     listaOpciones = document.getElementById('listaOpciones');
 /*     Resetear(); */
@@ -139,8 +134,8 @@ function DibujarElemento(stringArchivo){
             var coordenadas = d1[1].split(";");
             for (const coordenada of coordenadas) {
                 if (coordenada) { // si coordenada no es null o undefined o una cadena vacia (p. ej. "")
-                    var x = parseFloat(coordenada.split(",")[0]);
-                    var y = parseFloat(coordenada.split(",")[1]);
+                    var x = parseFloat(coordenada.split(",")[0] * (sliderElement.value * 0.015));
+                    var y = parseFloat(coordenada.split(",")[1] * (sliderElement.value * 0.015));
                     coords.push(new Coordenada(x, y));
                 }
             }
@@ -151,6 +146,11 @@ function DibujarElemento(stringArchivo){
     drawHandler.dibujarFiguras();
 }
 
+function sliderEvent(value){
+    createRectangle(0, 0, canvas.width, canvas.height, 'black');
+    console.log(figurasActuales);
+    enviarDatos(figurasActuales);
+}
 
 //OPCIONES
 // Funcion que lee el archivo de figuras y las dibuja en el canvas
@@ -299,20 +299,32 @@ var opcion4 = function () {
 function Edificios(){
     var datos = new Filtro();
     enviarDatos(datos.EDIFICIOS());
+
+    figurasActuales = [];
+    figurasActuales = datos.EDIFICIOS();
 }
 
 function Facultades(){
     var datos = new Filtro();
     enviarDatos(datos.FACULTADES());
+
+    figurasActuales = [];
+    figurasActuales = datos.FACULTADES();
 }
 
 function AreasComun(){
     var datos = new Filtro();
     enviarDatos(datos.AULASCOMUN());
+
+    figurasActuales = [];
+    figurasActuales = datos.AULASCOMUN();
 }
 function Entretenimiento(){
     var datos = new Filtro();
     enviarDatos(datos.ENTRETENIMIENTO());
+
+    figurasActuales = [];
+    figurasActuales = datos.ENTRETENIMIENTO();
 }
 function Edificio_N(){
     var datos = new Filtro();
