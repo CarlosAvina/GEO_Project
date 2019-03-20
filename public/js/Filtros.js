@@ -1,7 +1,7 @@
 class Filtro {
 
     EDIFICIOS() {
-        var arr = ['perimetroDefinitivo.dat', 'biblioteca.dat', 'edificio_D.dat', 'edificio_E.dat', 
+        var arr = ['biblioteca.dat', 'edificio_D.dat', 'edificio_E.dat', 
             'edificio_G.dat' , 'edificio_H.dat', 'edificio_I_J.dat', 'edificio_M.dat',
             'edificio_negocios_solo.dat', 'mim.dat', 'rectoria.dat', 'residencias.dat',
             'taller_edificio_M.dat', 'talleres_edificio_I_J.dat', 'universum.dat',
@@ -11,7 +11,7 @@ class Filtro {
     }
 
     FACULTADES(){
-        var arr = ['perimetroDefinitivo.dat', 'edificio_D.dat', 
+        var arr = ['edificio_D.dat', 
             'edificio_G.dat', 'edificio_I_J.dat', 'edificio_M.dat',
             'edificio_negocios_solo.dat', 'edificio_C.dat'];
 
@@ -19,16 +19,15 @@ class Filtro {
     }
 
     AULASCOMUN(){
-        var arr = ['biblioteca.dat', 'edificio_D.dat', 'edificio_E.dat', 
-            'edificio_G.dat' , 'edificio_H.dat', 'edificio_I_J.dat', 'edificio_M.dat',
-            'edificio_negocios_solo.dat', 'mim.dat', 'rectoria.dat', 'residencias.dat',
-            'taller_edificio_M.dat', 'talleres_edificio_I_J.dat', 'universum.dat'];
+        var arr = ['edificio_D.dat', 'edificio_C.dat',
+            'edificio_G.dat', 'edificio_I_J.dat', 'edificio_H.dat',
+            'edificio_negocios_solo.dat', 'biblioteca.dat'];
 
         return arr;
     }
 
     ENTRETENIMIENTO(){
-        var arr = ['perimetroDefinitivo.dat', 'areas_deportivas.dat'];
+        var arr = ['areas_deportivas.dat'];
 
         return arr;
     }

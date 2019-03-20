@@ -1,7 +1,7 @@
 var io = require('socket.io')();
 var fs = require('fs');
 
-var ruta = '/Users/rmfigueroa/Documents/GEO_Project/public/files/';
+var ruta = '/Users/juancarlosavinaluna/Documents/ISSC/Semestre6/SistemasGeoreferenciados/geo_project/public/files/';
 
 io.sockets.on('connection', function(socket){
     console.log('Hola amigo ' + socket.id);

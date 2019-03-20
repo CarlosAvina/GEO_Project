@@ -38,8 +38,8 @@
         <li class="tituloMenu"><a href="#">Filtros</a></li>
         <li><a href="#" onclick="Edificios()">Edificios</a></li>
         <li><a href="#" onclick="Facultades()">Facultades</a></li>
-        <li><a href="#" onclick="AreasComun()">Áreas de Entretenimiento Este es un pequeño cambio</a></li>
-        <li><a href="#" onclick="Entretenimiento()">Áreas de uso común</a></li>
+        <li><a href="#" onclick="AreasComun()">Áreas de uso común</a></li>
+        <li><a href="#" onclick="Entretenimiento()">Áreas de Entretenimiento</a></li>
       </ul>
     </nav>
     <div class="container">
@@ -49,7 +49,11 @@
           <button class="btn btn-outline-primary btn-block" onclick="opcion2()" id="btnLinea">Line</button>
           <button class="btn btn-outline-primary btn-block" onclick="opcion3()" id="btnPolilinea">Polyline</button>
           <button class="btn btn-outline-primary btn-block" onclick="opcion4()" id="btnPoligono">Polygon</button>
-          <input class="btn-block"  id="sliderElement" type="range" min="1" max="50" value="1" input="this.value" >
+          
+          <!-- SLIDER -->
+          <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="50" class="slider" id="sliderElement" oninput="sliderEvent(this.value)" onchange="sliderEvent(this.value)">
+          </div>
         
           <div class="actions col-12">
               <button class="btn btn-outline-primary btn-block" id="btnResetear" onclick="Resetear()">Reset</button>
@@ -61,7 +65,10 @@
           </div>
         </div>
         <div class="col-10">
-          <canvas width="900" height="700" id="canvasId"></canvas>
+          <!-- CANVAS -->
+          <div style="max-height:700px;max-width:900px;overflow: scroll;">
+              <canvas width="900" height="700" id="canvasId"></canvas>
+          </div>
         </div>
       </div>
     </div>
