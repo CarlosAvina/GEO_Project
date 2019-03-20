@@ -1,3 +1,5 @@
+var socket = io('http://localhost:3000');
+
 var sliderElement = document.getElementById('sliderElement');
 var canvas;
 var canvasContext;
@@ -333,3 +335,33 @@ var opcion4 = function () {
     document.getElementById('btnPolilinea').classList.remove('active');
     document.getElementById('btnPoligono').classList.add('active');
 }
+
+//COMUNICACIÓN CON EL SERVER
+function Edificios(){
+    var datos = new Filtro();
+    enviarDatos(datos.EDIFICIOS());
+}
+
+function Facultades(){
+    var datos = new Filtro();
+    enviarDatos(datos.FACULTADES());
+}
+
+function AreasComun(){
+    var datos = new Filtro();
+    enviarDatos(datos.AULASCOMUN());
+}
+
+function Entretenimiento(){
+    var datos = new Filtro();
+    enviarDatos(datos.ENTRETENIMIENTO());
+}
+
+function enviarDatos(data){
+    var json = JSON.stringify(data);
+    socket.emit('action', json);
+}
+
+socket.on('figura', function(data) {
+    console.log(String(data));
+});
