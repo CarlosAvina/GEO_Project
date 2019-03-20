@@ -1,0 +1,200 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.actions{
+    position:absolute;
+    right:0;
+    bottom:0;
+}
+.container {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+body{
+    background-color: #230c98;
+
+}
+.btn-outline-primary{
+    border-color: white;
+    color: black;
+}
+.btn-outline-primary:not(:disabled):not(.disabled).active{
+    background-color: #FFF;
+    border-color: black;
+    color: black;
+    
+}
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+    border-radius: 20px;
+}
+.btn-outline-primary:hover{
+    background-color: #FFF;
+    border-color: white;
+    color: black;
+}
+.border {
+    border: 10px solid black!important;   
+}
+#titleContainer{
+    writing-mode: vertical-rl;
+    text-orientation: upright;  
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.exerciseTitle{  
+    margin: 0px;
+    font-size: 40px;
+    font-weight: 400;
+    font-style: italic;
+    color: white;
+}
+.slider{
+    padding: 20px 0px 20px 0px;
+}
+#canvasId{
+    background-color: #121A2F;
+   
+}
+
+.nav {
+    -webkit-transition: left 0.5s ease;
+    -moz-transition: left 0.5s ease;
+    -ms-transition: left 0.5s ease;
+    -o-transition: left 0.5s ease;
+    transition: left 0.5s ease;
+    background: #FF512F;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F09819, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F09819, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    
+
+
+    color: white;
+    cursor: pointer;
+    font-size: 2rem;
+    height: 100vh;
+    left: -20rem;
+    padding: 6rem 2rem 2rem 2rem;
+    position: fixed;
+    top: 0;
+    width: 20rem;
+    z-index: 1;
+   
+}
+  
+.nav.expanded { 
+    left: 0;
+    padding-top: 0px;
+}
+
+.nav ul {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-toggle {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    height: 2rem;
+    left: 2rem;
+    position: fixed;
+    top: 2rem;
+    width: 3.6rem;
+    z-index: 2;
+}
+  
+.nav-toggle:hover { 
+    opacity: 0.8; 
+}
+  
+.nav-toggle .nav-toggle-bar,  .nav-toggle .nav-toggle-bar::after,  .nav-toggle .nav-toggle-bar::before {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    background: white;
+    content: '';
+    height: 0.4rem;
+    width: 100%;
+}
+  
+.nav-toggle .nav-toggle-bar { 
+    margin-top: 0; 
+}
+
+.nav-toggle .nav-toggle-bar::after { 
+    margin-top: 0.8rem; 
+}
+
+.nav-toggle .nav-toggle-bar::before { 
+    margin-top: -0.8rem; 
+}
+
+.nav-toggle.expanded .nav-toggle-bar { 
+    background: transparent; 
+
+}
+
+.nav-toggle.expanded .nav-toggle-bar::after, .nav-toggle.expanded .nav-toggle-bar::before {
+    background:  white;
+ 
+
+}
+  
+.nav-toggle.expanded .nav-toggle-bar::after {
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+
+}
+  
+.nav-toggle.expanded .nav-toggle-bar::before {
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+
+}
+a:hover{
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+li{
+    padding: 40px 40px 40px 40px;
+}
+a{
+    color: black;
+    font-size: 20px;
+}
+.tituloMenu{
+    font-size: 25px;
+    font-weight: bolder;
+}
+.wrapper {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+
