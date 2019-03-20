@@ -38,30 +38,151 @@
         <li class="tituloMenu"><a href="#">Filtros</a></li>
         <li><a href="#" onclick="Edificios()">Edificios</a></li>
         <li><a href="#" onclick="Facultades()">Facultades</a></li>
-        <li><a href="#" onclick="AreasComun()">Áreas de Entretenimiento Este es un pequeño cambio</a></li>
+        <li><a href="#" onclick="AreasComun()">Áreas de Entretenimiento</a></li>
         <li><a href="#" onclick="Entretenimiento()">Áreas de uso común</a></li>
       </ul>
     </nav>
     <div class="container">
       <div class="row">
         <div class="col-2" id ="listaOpciones">
-          <button class="btn btn-outline-primary btn-block"  onclick="opcion1()" id="btnPixel">Pixel</button>
-          <button class="btn btn-outline-primary btn-block" onclick="opcion2()" id="btnLinea">Line</button>
-          <button class="btn btn-outline-primary btn-block" onclick="opcion3()" id="btnPolilinea">Polyline</button>
-          <button class="btn btn-outline-primary btn-block" onclick="opcion4()" id="btnPoligono">Polygon</button>
-          <input class="btn-block"  id="sliderElement" type="range" min="1" max="50" value="1" input="this.value" >
-        
-          <div class="actions col-12">
-              <button class="btn btn-outline-primary btn-block" id="btnResetear" onclick="Resetear()">Reset</button>
-              <button class="btn btn-outline-primary btn-block" id="btnGuardar" onclick="Guardar()"><a id="downloadAnchorElem">Save</a></button>
-              <div class="custom-file btn-block">
-                  <input type="file" accept=".dat" class="custom-file-input " id="btnNuevo" onchange="Abrir(event)" name="avatar">
-                  <label class="custom-file-label" for="btnNuevo">Upload file</label>
-              </div>
-          </div>
+          <button class="btn btn-outline-primary btn-block"  onclick="Edificio_N()" id="btnPixel">Edificio N</button>
+          <button class="btn btn-outline-primary btn-block"  onclick="Edificio_Q()" id="btnPixel">Edificio Q</button>
+          <button class="btn btn-outline-primary btn-block" onclick="Edificio_P()" id="btnLinea">Edificio P</button>
+          <button class="btn btn-outline-primary btn-block" onclick="Edificio_O()" id="btnPolilinea">Edificio O</button>
+          <button class="btn btn-outline-primary btn-block" onclick="Edificio_L()" id="btnPoligono">Edificio L</button>
+          <button class="btn btn-outline-primary btn-block"  onclick="Edificio_M()" id="btnPixel">Edificio M</button>
+          <button class="btn btn-outline-primary btn-block" onclick="Edificio_J()" id="btnLinea">Edificio J</button>
+          <button class="btn btn-outline-primary btn-block" onclick="Edificio_K()" id="btnPolilinea">Edificio K</button>
+          <button class="btn btn-outline-primary btn-block" onclick="Edificio_H()" id="btnPoligono">Edificio H</button>
+          <button class="btn btn-outline-primary btn-block"  onclick="Edificio_G()" id="btnPixel">Edificio G</button>
+          <button class="btn btn-outline-primary btn-block" onclick="Edificio_F()" id="btnLinea">Edificio F</button>
+          <button class="btn btn-outline-primary btn-block" onclick="Edificio_A()" id="btnPolilinea">Edificio A</button>
+          <button class="btn btn-outline-primary btn-block" onclick="Edificio_C()" id="btnPoligono">Edificio C</button>
+          <button class="btn btn-outline-primary btn-block" onclick="Edificio_D()" id="btnLinea">Edificio D</button>
+          <button class="btn btn-outline-primary btn-block" onclick="Edificio_E()" id="btnPolilinea">Edificio E</button>
+          <button class="btn btn-outline-primary btn-block" onclick="Edificio_B()" id="btnPoligono">Edificio B</button>
         </div>
         <div class="col-10">
-          <canvas width="900" height="700" id="canvasId"></canvas>
+          <canvas width="900" height="715" id="canvasId"></canvas>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Edificio</th>
+                <th scope="col">Niveles</th>
+                <th scope="col">Facultades</th>
+                <th scope="col"># salones/nivel</th>
+                <th scope="col">Aulas de uso común</th>
+                <th scope="col">Áreas de entretenimiento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Edificio I</td>
+                <td>2</td>
+                <td>Tecnologías de la Información</td>
+                <td>27</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Edificio J</td>
+                <td>4</td>
+                <td>Arquitectura</td>
+                <td>22</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Edificio G</td>
+                <td>4</td>
+                <td>Derecho</td>
+                <td>42</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>Edificio H</td>
+                <td>2</td>
+                <td></td>
+                <td>31</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>Edificio E</td>
+                <td>4</td>
+                <td></td>
+                <td>17</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td>Edificio D</td>
+                <td>3</td>
+                <td>Odontología</td>
+                <td>10</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">7</th>
+                <td>Edificio C</td>
+                <td>3</td>
+                <td>Comunicación y Mercadotecnia</td>
+                <td>17</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">8</th>
+                <td>Edificio M</td>
+                <td>3</td>
+                <td>Diseño</td>
+                <td>22</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">9</th>
+                <td>Edificio P</td>
+                <td>4</td>
+                <td>Negocios</td>
+                <td>36</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">10</th>
+                <td>Edificio Q</td>
+                <td>3</td>
+                <td></td>
+                <td>1</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">11</th>
+                <td>Edificio F</td>
+                <td>3</td>
+                <td></td>
+                <td>0</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

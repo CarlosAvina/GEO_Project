@@ -127,30 +127,6 @@ function createRectangle(x, y, width, height, color) {
     canvasContext.fillRect(x, y, width, height);
 }
 
-var DibujarElemnto = function(event){
-    var texto = "3:129,70.5;761,70.5;762,415.5;759,420.5;756,423.5;750,423.5;731,425.5;730,466.5;587,691.5;439,612.5;324,551.5;325,538.5;127,483.5;"
-    var coords;
-    var lineasTexto = texto.split("\n");
-    for (const lineaTexto of lineasTexto) {
-        if (lineaTexto != "") {
-            coords = [];
-            var d1 = lineaTexto.split(":");
-            var tipoFigura = parseInt(d1[0]);
-            var coordenadas = d1[1].split(";");
-
-            for (const coordenada of coordenadas) {
-                if (coordenada) { // si coordenada no es null o undefined o una cadena vacia (p. ej. "")
-                    var x = parseFloat(coordenada.split(",")[0]);
-                    var y = parseFloat(coordenada.split(",")[1]);
-                    coords.push(new Coordenada(x, y));
-                }
-            }
-            figurasCargadas.push(new Figura(tipoFigura, coords));
-        }
-    }
-    var drawHandler = new DrawHandler(canvasContext, figurasCargadas);
-    drawHandler.dibujarFiguras();
-}
 function DibujarElemento(stringArchivo){
     var texto = stringArchivo;
     var coords;
@@ -259,8 +235,6 @@ var poligono = function (x, y) {
         canvasContext.beginPath();
         canvasContext.moveTo(x, y);
         canvasContext.strokeStyle = 'white';
-        canvasContext.shadowColor="white";
-        canvasContext.shadowBlur = 10;
         numClic3 = + 1;
         x1 = x;
         y1 = y;
@@ -272,9 +246,6 @@ var poligono = function (x, y) {
         canvasContext.closePath();
         canvasContext.stroke();
         canvasContext.strokeStyle = 'white';
-        canvasContext.shadowColor="white";
-        canvasContext.shadowBlur = 10;
-        canvas
         numClic3 = 0;
 
         // coordenadasPoligono.push(new Coordenada(x, y));
@@ -285,8 +256,6 @@ var poligono = function (x, y) {
         canvasContext.lineTo(x, y);
         canvasContext.stroke();
         canvasContext.strokeStyle = 'white';
-        canvasContext.shadowColor="white";
-        canvasContext.shadowBlur = 10;
         numClic3 = + 1;
         coordenadasPoligono.push(new Coordenada(x, y));
     }
@@ -341,11 +310,75 @@ function AreasComun(){
     var datos = new Filtro();
     enviarDatos(datos.AULASCOMUN());
 }
-
 function Entretenimiento(){
     var datos = new Filtro();
     enviarDatos(datos.ENTRETENIMIENTO());
 }
+function Edificio_N(){
+    var datos = new Filtro();
+    enviarDatos(datos.EDIFICIO_N());
+}
+function Edificio_Q(){
+    var datos = new Filtro();
+    enviarDatos(datos.EDIFICIO_Q());
+}
+function Edificio_P(){
+    var datos = new Filtro();
+    enviarDatos(datos.EDIFICIO_P());
+}
+function Edificio_O(){
+    var datos = new Filtro();
+    enviarDatos(datos.EDIFICIO_O());
+}
+function Edificio_L(){
+    var datos = new Filtro();
+    enviarDatos(datos.EDIFICIO_L());
+}
+function Edificio_M(){
+    var datos = new Filtro();
+    enviarDatos(datos.EDIFICIO_M());
+}
+function Edificio_J(){
+    var datos = new Filtro();
+    enviarDatos(datos.EDIFICIO_J());
+}
+function Edificio_K(){
+    var datos = new Filtro();
+    enviarDatos(datos.EDIFICIO_K());
+}
+function Edificio_H(){
+    var datos = new Filtro();
+    enviarDatos(datos.EDIFICIO_H());
+}
+function Edificio_G(){
+    var datos = new Filtro();
+    enviarDatos(datos.EDIFICIO_G());
+}
+function Edificio_F(){
+    var datos = new Filtro();
+    enviarDatos(datos.EDIFICIO_F());
+}
+function Edificio_A(){
+    var datos = new Filtro();
+    enviarDatos(datos.EDIFICIO_A());
+}
+function Edificio_C(){
+    var datos = new Filtro();
+    enviarDatos(datos.EDIFICIO_C());
+}
+function Edificio_D(){
+    var datos = new Filtro();
+    enviarDatos(datos.EDIFICIO_D());
+}
+function Edificio_E(){
+    var datos = new Filtro();
+    enviarDatos(datos.EDIFICIO_E());
+}
+function Edificio_B(){
+    var datos = new Filtro();
+    enviarDatos(datos.EDIFICIO_B());
+}
+
 
 function enviarDatos(data){
     var json = JSON.stringify(data);
