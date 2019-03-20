@@ -151,43 +151,33 @@ var DibujarElemnto = function(event){
     var drawHandler = new DrawHandler(canvasContext, figurasCargadas);
     drawHandler.dibujarFiguras();
 }
+function DibujarElemento(stringArchivo){
+    var texto = stringArchivo;
+    var coords;
+    var lineasTexto = texto.split("\n");
+    for (const lineaTexto of lineasTexto) {
+        if (lineaTexto != "") {
+            coords = [];
+            var d1 = lineaTexto.split(":");
+            var tipoFigura = parseInt(d1[0]);
+            var coordenadas = d1[1].split(";");
+            for (const coordenada of coordenadas) {
+                if (coordenada) { // si coordenada no es null o undefined o una cadena vacia (p. ej. "")
+                    var x = parseFloat(coordenada.split(",")[0]);
+                    var y = parseFloat(coordenada.split(",")[1]);
+                    coords.push(new Coordenada(x, y));
+                }
+            }
+            figurasCargadas.push(new Figura(tipoFigura, coords));
+        }
+    }
+    var drawHandler = new DrawHandler(canvasContext, figurasCargadas);
+    drawHandler.dibujarFiguras();
+}
 
 
 //OPCIONES
 // Funcion que lee el archivo de figuras y las dibuja en el canvas
-var Abrir = function (event) {
-    var reader = new FileReader();
-    reader.onload = function (e) {
-        var texto = e.target.result;
-        console.log(texto);
-        var coords;
-        var lineasTexto = texto.split("\n"); // leemos cada linea de texto por separado y las almacenamos en un arreglo
-
-        for (const lineaTexto of lineasTexto) {
-            if (lineaTexto != "") {
-                coords = [];
-                var d1 = lineaTexto.split(":");
-                var tipoFigura = parseInt(d1[0]);
-                var coordenadas = d1[1].split(";");
-
-                for (const coordenada of coordenadas) {
-                    if (coordenada) { // si coordenada no es null o undefined o una cadena vacia (p. ej. "")
-                        var x = parseFloat(coordenada.split(",")[0]);
-                        var y = parseFloat(coordenada.split(",")[1]);
-                        coords.push(new Coordenada(x, y));
-                    }
-                }
-
-                figurasCargadas.push(new Figura(tipoFigura, coords));
-            }
-        }
-        // console.log(figurasCargadas);
-        var drawHandler = new DrawHandler(canvasContext, figurasCargadas);
-        drawHandler.dibujarFiguras();
-    };
-
-    reader.readAsText(event.target.files[0]);
-}
 
 var Resetear = function () {
     createRectangle(0, 0, canvas.width, canvas.height, 'ghostwhite');
@@ -363,5 +353,6 @@ function enviarDatos(data){
 }
 
 socket.on('figura', function(data) {
+    DibujarElemento(String(data));
     console.log(String(data));
 });
