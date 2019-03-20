@@ -23,7 +23,7 @@ var figurasActuales = [];
 window.onload = function () {
     canvas = document.getElementById('canvasId');
     canvasContext = canvas.getContext('2d');
-    sliderElement = document.getElementById('sliderElement');
+    sliderElement = document.getElementById('mySlider');
 
     var perimetro = ['perimetroDefinitivo.dat'];
     enviarDatos(perimetro);
@@ -123,6 +123,7 @@ function createRectangle(x, y, width, height, color) {
 }
 
 function DibujarElemento(stringArchivo){
+
     var texto = stringArchivo;
     var coords;
     var lineasTexto = texto.split("\n");
@@ -134,8 +135,8 @@ function DibujarElemento(stringArchivo){
             var coordenadas = d1[1].split(";");
             for (const coordenada of coordenadas) {
                 if (coordenada) { // si coordenada no es null o undefined o una cadena vacia (p. ej. "")
-                    var x = parseFloat(coordenada.split(",")[0] * (sliderElement.value * 0.015));
-                    var y = parseFloat(coordenada.split(",")[1] * (sliderElement.value * 0.015));
+                    var x = parseFloat(coordenada.split(",")[0] * (sliderElement.value / 1));
+                    var y = parseFloat(coordenada.split(",")[1] * (sliderElement.value / 1));
                     coords.push(new Coordenada(x, y));
                 }
             }
@@ -146,10 +147,18 @@ function DibujarElemento(stringArchivo){
     drawHandler.dibujarFiguras();
 }
 
-function sliderEvent(value){
-    createRectangle(0, 0, canvas.width, canvas.height, 'black');
-    console.log(figurasActuales);
-    enviarDatos(figurasActuales);
+function zoomMapa(value){
+    canvasContext.canvas.width = 900 * (value/1);
+    canvasContext.canvas.height = 715 * (value/1);
+
+    createRectangle(0, 0, canvas.width, canvas.height, '#121A2F');
+    
+    var perimetro = ['perimetroDefinitivo.dat'];
+    
+    enviarDatos(perimetro);
+    //console.log(figurasActuales);
+
+    //enviarDatos(figurasActuales);
 }
 
 //OPCIONES
@@ -319,6 +328,7 @@ function AreasComun(){
     figurasActuales = [];
     figurasActuales = datos.AULASCOMUN();
 }
+
 function Entretenimiento(){
     var datos = new Filtro();
     enviarDatos(datos.ENTRETENIMIENTO());
@@ -326,71 +336,86 @@ function Entretenimiento(){
     figurasActuales = [];
     figurasActuales = datos.ENTRETENIMIENTO();
 }
+
 function Edificio_N(){
     var datos = new Filtro();
     enviarDatos(datos.EDIFICIO_N());
 }
+
 function Edificio_Q(){
     var datos = new Filtro();
     enviarDatos(datos.EDIFICIO_Q());
 }
+
 function Edificio_P(){
     var datos = new Filtro();
     enviarDatos(datos.EDIFICIO_P());
 }
+
 function Edificio_O(){
     var datos = new Filtro();
     enviarDatos(datos.EDIFICIO_O());
 }
+
 function Edificio_L(){
     var datos = new Filtro();
     enviarDatos(datos.EDIFICIO_L());
 }
+
 function Edificio_M(){
     var datos = new Filtro();
     enviarDatos(datos.EDIFICIO_M());
 }
+
 function Edificio_J(){
     var datos = new Filtro();
     enviarDatos(datos.EDIFICIO_J());
 }
+
 function Edificio_K(){
     var datos = new Filtro();
     enviarDatos(datos.EDIFICIO_K());
 }
+
 function Edificio_H(){
     var datos = new Filtro();
     enviarDatos(datos.EDIFICIO_H());
 }
+
 function Edificio_G(){
     var datos = new Filtro();
     enviarDatos(datos.EDIFICIO_G());
 }
+
 function Edificio_F(){
     var datos = new Filtro();
     enviarDatos(datos.EDIFICIO_F());
 }
+
 function Edificio_A(){
     var datos = new Filtro();
     enviarDatos(datos.EDIFICIO_A());
 }
+
 function Edificio_C(){
     var datos = new Filtro();
     enviarDatos(datos.EDIFICIO_C());
 }
+
 function Edificio_D(){
     var datos = new Filtro();
     enviarDatos(datos.EDIFICIO_D());
 }
+
 function Edificio_E(){
     var datos = new Filtro();
     enviarDatos(datos.EDIFICIO_E());
 }
+
 function Edificio_B(){
     var datos = new Filtro();
     enviarDatos(datos.EDIFICIO_B());
 }
-
 
 function enviarDatos(data){
     var json = JSON.stringify(data);
@@ -399,5 +424,4 @@ function enviarDatos(data){
 
 socket.on('figura', function(data) {
     DibujarElemento(String(data));
-    console.log(String(data));
 });

@@ -40,8 +40,6 @@
         <li><a href="#" onclick="Facultades()">Facultades</a></li>
         <li><a href="#" onclick="AreasComun()">Áreas de Entretenimiento</a></li>
         <li><a href="#" onclick="Entretenimiento()">Áreas de uso común</a></li>
-        <li><a href="#" onclick="AreasComun()">Áreas de uso común</a></li>
-        <li><a href="#" onclick="Entretenimiento()">Áreas de Entretenimiento</a></li>
       </ul>
     </nav>
     <div class="container">
@@ -65,9 +63,22 @@
           <button class="btn btn-outline-primary btn-block" onclick="Edificio_B()" id="btnPoligono">Edificio B</button>
         </div>
         <div class="col-10">
-          <canvas width="900" height="715" id="canvasId"></canvas>
+          <!-- CANVAS -->
+          <div style="max-height:715px; max-width:900px; overflow:scroll;">
+            <canvas width="900" height="715" id="canvasId"></canvas>
+          </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col">
+          <!-- SLIDER -->
+          <div class="slidecontainer">
+            <input type="range" min="1" max="50" value="1" class="slider" id="mySlider"
+            oninput="zoomMapa(this.value)" onchange="zoomMapa(this.value)">
+          </div>
+        </div>
+      </div>
+
       <br>
       <div class="row">
         <div class="col">
